@@ -1,6 +1,5 @@
 console.log("trying fetching from api");
 
-let city ="goa";
 let API_KEY="b1e7b739219268509a1b1249def75c82";
 
 function renderWeatherInfo(data) {
@@ -23,7 +22,7 @@ try {
     renderWeatherInfo(data);
 }
 catch(err) {
-    //handle the error here
+    console.log(err)
 }
 //https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric
 
