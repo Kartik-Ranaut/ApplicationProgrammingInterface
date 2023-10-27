@@ -6,8 +6,8 @@ let API_KEY="b1e7b739219268509a1b1249def75c82";
 
 button.addEventListener('click',async ()=>{
     let city=cityName.value;
-    let response =await fetchWeatherDetails(city);
-    let data= response.json();
+    let data =await fetchWeatherDetails(city);
+   
     display.innerHTML = `${data?.main?.temp.toFixed(2)} °C`;
 })
 
@@ -28,7 +28,7 @@ try {
     const data = await response.json();
 
     console.log("Weather data:-> " , data);
-
+    return data
   
 }
 catch(err) {
