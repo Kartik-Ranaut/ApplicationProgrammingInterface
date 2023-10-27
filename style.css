@@ -8,3 +8,20 @@
     align-items: center;
     justify-content: center;
 }
+.location{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    height: 300px;
+    width: 200px;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+
+}
