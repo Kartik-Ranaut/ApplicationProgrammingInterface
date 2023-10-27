@@ -1,6 +1,16 @@
-console.log("trying fetching from api");
-
+let button = document.querySelector(".getbtn");
+let cityName= document.querySelector("#city_name");
+let display= document.querySelector(".temp2");
+let city=""
 let API_KEY="b1e7b739219268509a1b1249def75c82";
+
+button.addEventListener('click',async ()=>{
+    let city=cityName.value;
+    let response =await fetchWeatherDetails(city);
+    let data= response.json();
+    display.innerHTML = `${data?.main?.temp.toFixed(2)} °C`;
+})
+
 
 function renderWeatherInfo(data) {
     let newPara = document.createElement('p');
@@ -9,17 +19,17 @@ function renderWeatherInfo(data) {
     document.body.appendChild(newPara);
 }
 
-async function fetchWeatherDetails() {
+async function fetchWeatherDetails(city) {
 
 try {
-    let city = "goa";
+    
 
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
     const data = await response.json();
 
     console.log("Weather data:-> " , data);
 
-    renderWeatherInfo(data);
+  
 }
 catch(err) {
     console.log(err)
