@@ -1,3 +1,31 @@
+let liveButton = document.querySelector(".live");
+let searchButton = document.querySelector(".search");
+
+let grantloc = document.querySelector(".grant-loc");
+let loading = document.querySelector(".loading-container");
+let info = document.querySelector(".info");
+let form = document.querySelector(".form-container");
+
+function zindex0(){
+    grantloc.style.zIndex="0";
+    loading.style.zIndex="0";
+    info.style.zIndex="0";
+    form.style.zIndex="0";
+}
+
+liveButton.addEventListener('click',()=>{
+    zindex0();
+    grantloc.style.zIndex="1";
+});
+searchButton.addEventListener('click',()=>{
+    zindex0();
+    form.style.zIndex="1";
+});
+
+
+
+
+
 let button = document.querySelector(".getbtn");
 let cityName= document.querySelector("#city_name");
 let display= document.querySelector(".temp2");
