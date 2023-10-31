@@ -4,24 +4,50 @@
 }
 .grant-loc{
     background-color: red;
+    position: absolute;
+    width:400px;
+    height: 500px;
+    z-index: -1;
 }
 .form-container{
     background-color: orange;
+    position: absolute;
+    width:400px;
+    height: 500px;
+    z-index: -1;
 }
 
 .loading-container{
     background-color: yellow;
+    position: absolute;
+    width:400px;
+    height: 500px;
+    z-index: -1;
 }
 .info{
     background-color: green;
+    position: absolute;
+    width:400px;
+    height: 500px;
+    z-index: -1;
 }
 .heading{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap:20px;
+    
 }
 
 .tab-container{
-    
+    display: flex;
+    width:500px;
+    height: fit-content;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+.weather-cnt{
+    display: flex;
+    justify-content: center;
 }
