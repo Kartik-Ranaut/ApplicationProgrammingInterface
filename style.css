@@ -5,3 +5,23 @@
 .grant-loc{
     background-color: red;
 }
+.form-container{
+    background-color: orange;
+}
+
+.loading-container{
+    background-color: yellow;
+}
+.info{
+    background-color: green;
+}
+.heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-container{
+    
+}
