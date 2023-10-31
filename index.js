@@ -6,6 +6,10 @@ let loading = document.querySelector(".loading-container");
 let info = document.querySelector(".info");
 let form = document.querySelector(".form-container");
 
+let accessbtn =document.querySelector(".btn");
+
+accessbtn.addEventListener('click',getLocation);
+
 function zindex0(){
     grantloc.style.zIndex="0";
     loading.style.zIndex="0";
