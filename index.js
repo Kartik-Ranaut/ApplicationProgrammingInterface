@@ -30,19 +30,25 @@ searchButton.addEventListener('click',()=>{
 
 
 
-let button = document.querySelector(".getbtn");
-let cityName= document.querySelector("#city_name");
+let cityNameSearch = document.querySelector("[data-searchInput]");
 let dataTemp = document.querySelector(".data-temp");
 let dataCityName = document.querySelector(".data-cityName");
+let buttonForm = document.querySelector(".btn-form")
 let city=""
 let API_KEY="b1e7b739219268509a1b1249def75c82";
 
-button.addEventListener('click',async ()=>{
-    let city=cityName.value;
-    let data =await fetchWeatherDetails(city);
-   
-    display.innerHTML = `${data?.main?.temp.toFixed(2)} °C`;
+
+buttonForm.addEventListener('click',async ()=>{
+    city=cityNameSearch.value;
+    data=await fetchWeatherDetails(city);
+    dataTemp.innerHTML=`${data?.main?.temp.toFixed(2)} °C`;
 })
+// button.addEventListener('click',async ()=>{
+//     let city=cityName.value;
+//     let data =await fetchWeatherDetails(city);
+   
+//     display.innerHTML = `${data?.main?.temp.toFixed(2)} °C`;
+// })
 
 
 function renderWeatherInfo(data) {
