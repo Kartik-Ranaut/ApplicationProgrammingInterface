@@ -33,16 +33,19 @@ searchButton.addEventListener('click',()=>{
 let cityNameSearch = document.querySelector("[data-searchInput]");
 let dataTemp = document.querySelector(".data-temp");
 let dataCityName = document.querySelector(".data-cityName");
-let buttonForm = document.querySelector(".btn-form")
-let city=""
+let buttonForm = document.querySelector(".btn-form");
+let city="";
 let API_KEY="b1e7b739219268509a1b1249def75c82";
 
 
 buttonForm.addEventListener('click',async ()=>{
-    city=cityNameSearch.value;
-    data=await fetchWeatherDetails(city);
-    dataTemp.innerHTML=`${data?.main?.temp.toFixed(2)} °C`;
-})
+    console.log("ram ji ki jai");
+    // data =await fetchWeatherDetails('delhi');
+    // city=cityNameSearch.value;
+    // data=await fetchWeatherDetails(city);
+    // console.log(data);
+    // dataTemp.innerHTML= `${data?.main?.temp.toFixed(2)} °C`;
+});
 // button.addEventListener('click',async ()=>{
 //     let city=cityName.value;
 //     let data =await fetchWeatherDetails(city);
@@ -66,11 +69,11 @@ async function fetchWeatherDetails(city) {
         const data = await response.json();
 
         console.log("Weather data:-> " , data);
-        return data
+        return data;
     
     }
     catch(err) {
-        console.log(err)
+        console.log(err);
     }
     //https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric
 
