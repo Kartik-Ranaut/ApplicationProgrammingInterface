@@ -10,9 +10,9 @@
             padding: 0;
         }
         .div{
-            background-image: linear-gradient(to right,orange,pink);
+            background-color :rgb(26, 22, 63);
             width: 100vw;
-            height: 100vh;
+            height: fit-content;
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -22,30 +22,34 @@
             font-size: 2.5rem;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-        .oneinr{
+        .oneinr, .toinr{
             width: 70%;
-            height: 300px;
+            height: fit-content;
             text-align: center;
-            padding-top: 30px;
+            
             background-color: #fff;
-            border-radius: 15px;
+
+            border-top-left-radius:15px ;
+            border-top-right-radius: 15px;
             margin-top: 100px;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         .head{
             font-size: 1.2rem;
-            color: orange;
+            color: rgb(26, 22, 63);
         }
         .convert{
-            height:200px;
+            height:fit-content;
+            padding: 30px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             gap:15px;
         }
-        .cur{
-            background-color: orange;
+        .cur, .revcur{
+            color: azure;
+            background-color :rgb(26, 22, 63);
             border-radius: 10px;
             padding: 10px;
         }
@@ -53,20 +57,73 @@
 </head>
 <body>
     <div class="div">
-        <div class="heading">INR To all Curencies</div>
+        <div class="heading">Curency Convertor</div>
         <div class="oneinr">
             <div class="head">1 INR </div>
             <div class="convert">
-                <div class="usd cur">USD: 44</div>
-                <div class="eur cur">EUR: 44</div>
-                <div class="gbp cur">GBP: 44</div>
-                <div class="jpy cur">JPY: 44</div>
-                <div class="cad cur">CAD: 44</div>
-                <div class="cny cur">CNY: 44</div>
+                <div class="usd cur">USD: </div>
+                <div class="eur cur">EUR: </div>
+                <div class="gbp cur">GBP: </div>
+                <div class="jpy cur">JPY: </div>
+                <div class="cad cur">CAD: </div>
+                <div class="cny cur">CNY: </div>
+            </div>
+        </div>
+        <div class="toinr">
+            <div class="head">To INR </div>
+            <div class="convert">
+                <div class="usd revcur">1 USD: </div>
+                <div class="eur revcur">1 EUR: </div>
+                <div class="gbp revcur">1 GBP: </div>
+                <div class="jpy revcur">1 JPY: </div>
+                <div class="cad revcur">1 CAD: </div>
+                <div class="cny revcur">1 CNY: </div>
             </div>
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="index.js">
+        let apikey = "7c551e4790a53da3c86ccafbd76fa0e4";
+
+getdetails();
+let convertbox = document.querySelectorAll(".cur");
+let revconvertbox =document.querySelectorAll(".revcur");
+async function getdetails(){
+    data= await fetch(`https://api.currencyapi.com/v3/latest?apikey=cur_live_wxBYZ2gFBnmMrOVj3UbM866J1P3tJyGApjdQfC8u&currencies=EUR%2CUSD%2CCAD%2CCNY%2CGBP%2CJPY&base_currency=INR`);
+    converted= await data.json();
+    convertbox.forEach((element)=>{
+        if(element.classList[0]=='usd')
+            element.innerHTML+=converted.data.USD.value;
+        else if(element.classList[0]=='eur')
+        element.innerHTML+=converted.data.EUR.value;
+        else if(element.classList[0]=='gbp')
+        element.innerHTML+=converted.data.GBP.value;
+        else if(element.classList[0]=='cny')
+        element.innerHTML+=converted.data.CNY.value;
+        else if(element.classList[0]=='cad')
+        element.innerHTML+=converted.data.CAD.value;
+        else if(element.classList[0]=='jpy')
+        element.innerHTML+=converted.data.JPY.value;
+    })
+    revconvertbox.forEach((element)=>{
+        if(element.classList[0]=='usd')
+            element.innerHTML+=1/converted.data.USD.value;
+        else if(element.classList[0]=='eur')
+        element.innerHTML+=1/converted.data.EUR.value;
+        else if(element.classList[0]=='gbp')
+        element.innerHTML+=1/converted.data.GBP.value;
+        else if(element.classList[0]=='cny')
+        element.innerHTML+=1/converted.data.CNY.value;
+        else if(element.classList[0]=='cad')
+        element.innerHTML+=1/converted.data.CAD.value;
+        else if(element.classList[0]=='jpy')
+        element.innerHTML+=1/converted.data.JPY.value;
+    })
+    console.log(converted.data.USD.value);
+}
+
+
+
+    </script>
 </body>
 </html>
